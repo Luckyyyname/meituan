@@ -60,10 +60,12 @@ window.onload = function() {
             this.classList.add("show");
 
             let droprightSpan = this.getElementsByTagName("span")[0];
-            let droprightHot = this.getElementsByTagName("span")[1];
-
             droprightSpan.classList.add("fweight");
-            droprightHot.classList.add("getHot");
+
+            if(droprightSpan.innerHTML === "酒店"){
+                let droprightHot = this.getElementsByTagName("span")[1];
+                droprightHot.classList.add("getHot");
+            }
 
         };
         droprightLi[i].onmouseout = function(){
@@ -71,10 +73,12 @@ window.onload = function() {
             this.classList.remove("show");
 
             let droprightSpan = this.getElementsByTagName("span")[0];
-            let droprightHot = this.getElementsByTagName("span")[1];
-
             droprightSpan.classList.remove("fweight");
-            droprightHot.classList.remove("getHot");
+
+            if(droprightSpan.innerHTML === "酒店"){
+                let droprightHot = this.getElementsByTagName("span")[1];
+                droprightHot.classList.remove("getHot");
+            }
 
         };
     }
@@ -83,7 +87,7 @@ window.onload = function() {
     //轮播条函数
     let barPlay = function(){
         k = add - 1;
-        links[0].href = picHref[add - 1];
+        links[0].href = picHref[k];
         for(i = 0; i <carouselBarLi.length; i++){
             carouselBarLi[i].style.cssText = "background: #fff; opacity: .2; ";
             if( i === k){
