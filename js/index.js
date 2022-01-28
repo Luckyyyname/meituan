@@ -1,6 +1,5 @@
 window.onload = function() {
     let dropdown = document.getElementById("dropdown");
-    let dropdownLi = dropdown.getElementsByTagName("li");
 
     let dropright = document.getElementById("dropright");
     let droprightLi = dropright.getElementsByTagName("li");
@@ -35,21 +34,22 @@ window.onload = function() {
     carouselBarLi[0].style.cssText = "background: #fff; opacity: 1; ";
     links[0].href = picHref[0];
 
-
-    //首部导航栏右侧下拉菜单
-    for(i = 0; i < dropdownLi.length; i++){
-        if(i === 1)continue;
-
-        dropdownLi[i].onmouseover = function(){
-            this.classList.add("show");
-            let dropdownA = this.getElementsByTagName("a")[0];
-            dropdownA.classList.add("navBorder");
-        };
-        dropdownLi[i].onmouseout = function(){
-            this.classList.remove("show");
-            let dropdownA = this.getElementsByTagName("a")[0];
-            dropdownA.classList.remove("navBorder");
-        };
+    //首部右侧hover效果
+    dropdown.onmouseover = function(e){
+        const target = e.target || e.srcElement;
+        const targetLi = target.parentNode;
+        if(targetLi.id !== "phoneapp"){
+            targetLi.classList.add("show");
+            target.classList.add("navBorder");
+        }
+    }
+    dropdown.onmouseout = function(e){
+        const target = e.target || e.srcElement;
+        const targetLi = target.parentNode;
+        if(targetLi.id !== "phoneapp"){
+            targetLi.classList.remove("show");
+            target.classList.remove("navBorder");
+        }
     }
 
     //主体部分左侧菜单栏hover后效果
@@ -246,6 +246,5 @@ window.onload = function() {
             hotelOnTag[hotelnow].classList.remove("displaynone");
         }
     }                                 
-
-};    
+};
  

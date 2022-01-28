@@ -26,9 +26,10 @@ header .search-center {
 .search-center-area {
     position: absolute;
     float: left;
-    left: 30%;
+    left: 50%;
     width: 420px;
     height: 93px;
+    margin-left: -210px;
     padding-top: 28px;
 }
 .search-content {
