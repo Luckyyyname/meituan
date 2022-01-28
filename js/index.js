@@ -10,7 +10,8 @@ window.onload = function() {
     let carouselPic = document.getElementById("carousel");
     let carouselBox = document.getElementById("carouselBox");
     let links = carouselBox.getElementsByTagName("a");
-    let carouselBarLi = document.getElementById("carouselBar").getElementsByTagName("li");
+    let carouselBar = document.getElementById("carouselBarUl");
+    let carouselBarLi = carouselBar.getElementsByTagName("li");
 
     let movieBody = document.getElementById("movieBody");
     let movieLeftButton = document.getElementById("movieLeft");
@@ -146,14 +147,13 @@ window.onload = function() {
     };
 
     //鼠标滑过轮播条切换图片
-    for(i = 0; i < carouselBarLi.length; i++){
-        carouselBarLi[i].onmouseover = function(){
-            add = this.innerHTML;
-            carouselPic.src = "images/ad0"+ add +".jpg";
-            links[0].href = picHref[add - 1];
+    carouselBar.onmouseover = function(e){
+        const target = e.target || e.srcElement; 
+        add = target.innerHTML;
+        carouselPic.src = "images/ad0"+ add +".jpg";
+        links[0].href = picHref[add - 1];
 
-            barPlay();
-        }
+        barPlay();
     }
 
     //电影主题区域左右键显示
@@ -245,6 +245,6 @@ window.onload = function() {
             hotelBody[hotelnow].classList.remove("displaynone");
             hotelOnTag[hotelnow].classList.remove("displaynone");
         }
-    }                                 
+    }                             
 };
  
